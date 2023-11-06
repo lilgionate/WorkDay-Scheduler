@@ -61,13 +61,16 @@ planWorkday.forEach(function(timeBlock, index) {
 
 /* Color rows based on current time */
 function colorRow(time) {
-	var planNow = dayjs(now, "D A");
-	var planEntry = dayjs(time, "D A");
-	if (planNow.isBefore(planEntry) === true) {
+	var planNow = dayjs().hour(dayjs().format("D A"));
+	var planEntry = dayjs(time, "h A");
+	if (planNow.isBefore(planEntry) ){
+		console.log("future");
 		return "future";
-	} else if (planNow.isAfter(planEntry) === true) {
+	} else if (planNow.isAfter(planEntry)) {
+		console.log("past");
 		return "past";
 	} else {
+		console.log("present");
 		return "present";
 	}
 }
