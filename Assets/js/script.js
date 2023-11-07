@@ -53,7 +53,7 @@ planWorkday.forEach(function(timeBlock, index) {
 		blockColor +
 		'">' +
 		timeBlock.event +
-		'</textarea><div class="col-sm col-lg-1 input-group-append"><button class="saveBtn btn-block" type="submit"><i class="fas fa-save"></i></button></div></div></div>';
+		'</textarea><div class="col-sm col-lg-1 input-group-append"><button class="saveBtn btn-block custom-button" type="submit"><i class="fas fa-save"></i></button></div></div></div>';
 
 	/* Adding rows to container div */
 	$(".container").append(row);
@@ -63,14 +63,11 @@ planWorkday.forEach(function(timeBlock, index) {
 function colorRow(time) {
 	var planNow = dayjs().hour();
 	var planEntry = dayjs(time, "h A");
-	if (planNow < 15 ){
-		console.log("future");
+	if (planNow < 5 ){;
 		return "future";
-	} else if (planNow > 15) {
-		console.log("past");
+	} else if (planNow > 5) {
 		return "past";
 	} else {
-		console.log("present");
 		return "present";
 	}
 }
